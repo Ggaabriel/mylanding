@@ -11,7 +11,7 @@ function App() {
     const [selectedPage, setSelectedPage] = React.useState<string>("");
   return (
     <div className="App">
-        <Header selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>
+        <Header selectedPage={selectedPage} setSelectedPage={setSelectedPage}/> 
     </div>
   );
 }
