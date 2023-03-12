@@ -27,9 +27,9 @@ const Header = ({isAboveMediumScreens, isTopOfPage,selectedPage, setSelectedPage
         `Отзывы`,
         `Обратная связь`
     ]
-    return <nav className='font-bold text-xl'>
-        <div className={`${headerScrollBackground} ${flexBetween} fixed top-0 z-30 w-full`}>
-            <div className={`${flexBetween} mx-auto w-5/6 w-[1400px]`}>
+    return <nav className='font-bold text-xl '>
+        <div className={`${headerScrollBackground} ${flexBetween} fixed top-0 z-30 w-full `}>
+            <div className={`${flexBetween} mx-auto w-5/6 `}>
 
                 {isAboveMediumScreens ?
                     (
@@ -81,7 +81,7 @@ const Header = ({isAboveMediumScreens, isTopOfPage,selectedPage, setSelectedPage
         {!isAboveMediumScreens && isMenuToggle && (
             <div className='fixed right-0 bottom-0 z-40 h-full w-[300px] bg-woodColor'>
                 {/* Кнопка закрывашка */}
-                <div className='flex justify-end py-9 pr-2'>
+                <div className='flex justify-end p-12'>
                     <button onClick={() => setMenuToggle(!isMenuToggle)}>
                         <XMarkIcon className='w-6 h-6' />
                     </button>

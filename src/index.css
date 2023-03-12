@@ -13,4 +13,5 @@ body,
     font-family: "Bellota";
     @apply text-textColor;
     @apply bg-appaBackground;
+   
 }

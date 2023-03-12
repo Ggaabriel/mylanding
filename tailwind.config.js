@@ -12,15 +12,25 @@ module.exports = {
                 textColor: "#1A1918"
             },
             screens: {
-                xs: "320",
-                s: "768",
-                md: "1200",
+                xs: "320px",
+                s: "768px",
+                md: "1200px",
             },
             fontFamily: {
                 caveat:["Caveat", "sans-serif"],
                 bellota: ["Bellota", "sans-serif"]
+            },
+            keyframes: {
+                levitate: {
+                  '0%, 100%': {  paddingTop: '0px',transform: 'rotate(3deg)' },
+                  '50%': {paddingTop: '10%' , transform: 'rotate(0deg)' },
+                }
+            },
+            animation: {
+                'levitate': 'levitate 3s linear infinite'
             }
         },
     },
-    plugins: [],
+    plugins: [
+    ],
 };
