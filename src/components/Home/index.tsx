@@ -12,20 +12,25 @@ type Props = {
 
 const Home = ({ isAboveMediumScreens, setSelectedPage }: Props) => {
     const clipButton = "polygon(0.00% 75.64%,9.82% 67.63%,0.00% 59.87%,0.00% 32.81%,41.26% 28.07%,0.18% 24.87%,0.00% 0.00%,100.00% 0.00%,100.00% 44.61%,89.37% 56.47%,100.00% 68.84%,100.00% 100%,0.00% 100%)";
+
+
     return (
         <section className="py-20 font-caveat bg-bodyColor text-textColor w-full md:h-[980px]">
-            <div className="max-w-[1400px] mx-auto md:flex md:relative h-full items-center">
-                <div className="md:absolute md:right-0 z-1  pr-4">
-                    <img
-                        className="animate-levitate xs2:h-[30vh] xs:h-[45vh] w-[70%] s:h-[70vh] h-[70vh]"
-                        src={aang}
-                        alt="Avatar: последний маг воздуха"
-                    />
-                </div>
+            <motion.div
+            className="max-w-[1400px] mx-auto md:flex md:relative h-full items-center"
+            onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
+            >
+                
                 <motion.div 
                 className="z-10 gap-10 flex flex-col items-start "
                 initial="hidden"
                 whileInView="visible"
+                viewport={{ once: true, amount: 0.5}}
+                transition={{duration:0.5}}
+                variants={{
+                    hidden: {opacity: 0, x: -50},
+                    visible: {opacity:1, x: 0},
+                }}
                 >
                     <h1 className="md:text-9xl text-7xl font-bold">Аватар: последний маг воздуха</h1>
                     <div className="">
@@ -49,8 +54,14 @@ const Home = ({ isAboveMediumScreens, setSelectedPage }: Props) => {
                             </div>
                         </div>
                 </motion.div>
-                
-            </div>
+                <div className="md:absolute md:right-0 z-1 w-[70%] pr-4">
+                    <img
+                        className="animate-levitate"
+                        src={aang}
+                        alt="Avatar: последний маг воздуха"
+                    />
+                </div>
+            </motion.div>
         </section>
     );
 
