@@ -1,7 +1,9 @@
 import React from 'react'
 import useMediaQuery from '../../hooks/useMediaQuery';
 import { SelectedPage } from '../../shared/types';
-import aang from '../../assets/images/AangClip.png'
+import aang from '../../assets/images/AangClip.png';
+import { ReactComponent as Telegram} from "../../assets/images/telegram.svg"
+import { ReactComponent as Dribbble} from "../../assets/images/dribbble.svg"
 
 
 type Props = {
@@ -24,7 +26,18 @@ const Home = ({ isAboveMediumScreens, setSelectedPage }: Props) => {
                         Успейте посмотреть трейлер по подписке netflixXXX
                         до выхода премьеры!
                     </p>
-                    <button style={{clipPath:clipButton}} className="hover:rotate-6 transition duration-500 block px-10 py-7 rounded-xl md:text-2xl text-xl bg-woodColor font-bellota text-white font-light">Смотреть трейлер</button>
+                    <button style={{clipPath:clipButton}} className="hover:rotate-6 transition duration-500 block px-10 py-7 rounded-xl md:text-2xl text-2xl bg-woodColor font-bellota text-white font-light">Смотреть трейлер</button>
+                        <div className="bg-pinkClip bg-cover w-60 h-24 text-white text xl flex flex-col justify-center gap-4 pl-6">
+                            <p>наши соц сети</p>
+                            <div className='flex gap-4'>
+                                <button className='hover:rotate-45 transition duration-500'>
+                                    <Dribbble />
+                                </button>
+                                <button className='hover:rotate-45 transition duration-500'>
+                                    <Telegram />
+                                </button>
+                            </div>
+                        </div>
                 </div>
                 <div className="md:absolute md:right-0 z-1 w-[70%] animate-levitate">
                     <img

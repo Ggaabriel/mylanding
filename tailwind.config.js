@@ -28,6 +28,9 @@ module.exports = {
             },
             animation: {
                 'levitate': 'levitate 3s linear infinite'
+            },
+            backgroundImage: {
+                'pinkClip': "url('/src/assets/images/pinkClip.png')",
             }
         },
     },
