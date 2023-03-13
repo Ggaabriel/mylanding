@@ -4,8 +4,7 @@ import { SelectedPage } from '../../shared/types';
 import aang from '../../assets/images/AangClip.png';
 import { ReactComponent as Telegram} from "../../assets/images/telegram.svg"
 import { ReactComponent as Dribbble} from "../../assets/images/dribbble.svg"
-
-
+import { motion } from 'framer-motion';
 type Props = {
     setSelectedPage: (value: SelectedPage) => void;
     isAboveMediumScreens: boolean;
@@ -16,7 +15,18 @@ const Home = ({ isAboveMediumScreens, setSelectedPage }: Props) => {
     return (
         <section className="py-20 font-caveat bg-bodyColor text-textColor w-full md:h-[980px]">
             <div className="max-w-[1400px] mx-auto md:flex md:relative h-full items-center">
-                <div className="z-10 gap-10 flex flex-col items-start">
+                <div className="md:absolute md:right-0 z-1  pr-4">
+                    <img
+                        className="animate-levitate xs2:h-[30vh] xs:h-[45vh] w-[70%] s:h-[70vh] h-[70vh]"
+                        src={aang}
+                        alt="Avatar: последний маг воздуха"
+                    />
+                </div>
+                <motion.div 
+                className="z-10 gap-10 flex flex-col items-start "
+                initial="hidden"
+                whileInView="visible"
+                >
                     <h1 className="md:text-9xl text-7xl font-bold">Аватар: последний маг воздуха</h1>
                     <div className="">
                         <p className="md:text-6xl text-4xl font-bold">До выхода премьеры
@@ -38,14 +48,8 @@ const Home = ({ isAboveMediumScreens, setSelectedPage }: Props) => {
                                 </button>
                             </div>
                         </div>
-                </div>
-                <div className="md:absolute md:right-0 z-1 w-[70%] animate-levitate">
-                    <img
-                        className=""
-                        src={aang}
-                        alt="Avatar: последний маг воздуха"
-                    />
-                </div>
+                </motion.div>
+                
             </div>
         </section>
     );

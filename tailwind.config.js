@@ -12,6 +12,7 @@ module.exports = {
                 textColor: "#1A1918"
             },
             screens: {
+                xs2:"250px",
                 xs: "320px",
                 s: "768px",
                 md: "1200px",
@@ -23,11 +24,11 @@ module.exports = {
             keyframes: {
                 levitate: {
                   '0%, 100%': {  paddingTop: '0px',transform: 'rotate(3deg)' },
-                  '50%': {paddingTop: '10%' , transform: 'rotate(0deg)' },
+                  '50%': {paddingTop: '15%' , transform: 'rotate(0deg)' },
                 }
             },
             animation: {
-                'levitate': 'levitate 3s linear infinite'
+                'levitate': 'levitate 5s ease-in-out infinite'
             },
             backgroundImage: {
                 'pinkClip': "url('/src/assets/images/pinkClip.png')",
