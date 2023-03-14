@@ -23,8 +23,8 @@ module.exports = {
             },
             keyframes: {
                 levitate: {
-                  '0%, 100%': {  paddingTop: '0px',transform: 'rotate(3deg)' },
-                  '50%': {paddingTop: '15%' , transform: 'rotate(0deg)' },
+                  '0%, 100%': {transform: 'rotate(3deg) translate(0,0)'  },
+                  '50%': {transform: 'rotate(0deg) translate(0,15%)' },
                 }
             },
             animation: {

@@ -5,13 +5,15 @@ import aang from '../../assets/images/AangClip.png';
 import { ReactComponent as Telegram} from "../../assets/images/telegram.svg"
 import { ReactComponent as Dribbble} from "../../assets/images/dribbble.svg"
 import { motion } from 'framer-motion';
+import ActionButton from '../../shared/ActionButton';
+
 type Props = {
     setSelectedPage: (value: SelectedPage) => void;
     isAboveMediumScreens: boolean;
 }
 
 const Home = ({ isAboveMediumScreens, setSelectedPage }: Props) => {
-    const clipButton = "polygon(0.00% 75.64%,9.82% 67.63%,0.00% 59.87%,0.00% 32.81%,41.26% 28.07%,0.18% 24.87%,0.00% 0.00%,100.00% 0.00%,100.00% 44.61%,89.37% 56.47%,100.00% 68.84%,100.00% 100%,0.00% 100%)";
+   
 
 
     return (
@@ -41,7 +43,7 @@ const Home = ({ isAboveMediumScreens, setSelectedPage }: Props) => {
                         Успейте посмотреть трейлер по подписке netflixXXX
                         до выхода премьеры!
                     </p>
-                    <button style={{clipPath:clipButton}} className="hover:rotate-6 transition duration-500 block px-10 py-7 rounded-xl md:text-2xl text-2xl bg-woodColor font-bellota text-white font-light">Смотреть трейлер</button>
+                    <ActionButton chidren={" Смотреть трейлер"} />
                         <div className="bg-pinkClip bg-cover w-60 h-24 text-white text xl flex flex-col justify-center gap-4 pl-6">
                             <p>наши соц сети</p>
                             <div className='flex gap-4'>
