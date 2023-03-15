@@ -9,6 +9,8 @@ type Props = {
 }
 
 const Characters = ({characters, setSelectedPage}: Props) => {
+    let [whatIsHeroNow, setHero] = React.useState<number>(0);
+    
     return (
         <section>
             {/* Блок папа со всеми значениями */}
@@ -16,7 +18,7 @@ const Characters = ({characters, setSelectedPage}: Props) => {
              className="max-w-[1400px] mx-auto py-20 md:h-[980px] flex items-center justify-center"
             >
                 {/* Блок с информацией и картинкой */}
-                <Character characters = {characters}/>
+                <Character />
                 {/* Пагинация между персонажами */}
                 <div className="flex">
 

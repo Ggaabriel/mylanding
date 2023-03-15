@@ -20,19 +20,19 @@ function App() {
     const [isTopOfPage, setTopOfPage] = useState<boolean>(true);
     const isAboveMediumScreens = useMediaQuery("(min-width: 1200px)");
     let [characters, setCharacters] = useState<CharactersItems[]>([]);
-    let [whatIsHeroNow, setHero] = useState<number>(0);
 
     useEffect(() => {
         async function roar() {
-            await axios
-                .get(`https://64103dc3864814e5b64b86c9.mockapi.io/characters`)
-                .then(({ data }: AxiosResponse<CharactersItems[]>) => {
-                    setCharacters(characters = data);
-                });
-        };
-        roar(); 
-        console.log(characters)    
-    }, []);
+          const { data } = await axios.get(
+            `https://64103dc3864814e5b64b86c9.mockapi.io/characters`
+          );
+          setCharacters(data);
+          console.log(characters);
+          
+        }
+        roar();
+      }, []);
+    
 
     useEffect(() => {
         const scrollAction = () => {
