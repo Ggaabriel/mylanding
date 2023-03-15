@@ -13,13 +13,11 @@ type Props = {
 }
 
 const Home = ({ isAboveMediumScreens, setSelectedPage }: Props) => {
-   
-
-
     return (
-        <section className="py-20 font-caveat bg-bodyColor text-textColor w-full md:h-[980px]">
+        <section id={`${SelectedPage.Home}`} className="py-20 font-caveat bg-bodyColor text-textColor w-full md:h-[980px]">
             <motion.div
             className="max-w-[1400px] mx-auto md:flex md:relative h-full items-center"
+            
             onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
             >
                 

@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Characters from "./components/Characters";
 import Header from "./components/Header";
@@ -19,19 +19,21 @@ function App() {
     );
     const [isTopOfPage, setTopOfPage] = useState<boolean>(true);
     const isAboveMediumScreens = useMediaQuery("(min-width: 1200px)");
-    let [characters, setCharacters] = useState<CharactersItems[]>([]);
+    const [characters, setCharacters] = useState<CharactersItems[]>([]);
+    const [isLoading,setIsLoading] = useState<boolean>(true);
+    const [hero , setHero] = useState<number>(0);
 
     useEffect(() => {
-        async function roar() {
+        setIsLoading(true);
+        async function getHero() {
           const { data } = await axios.get(
-            `https://64103dc3864814e5b64b86c9.mockapi.io/characters`
+            `https://64103dc3864814e5b64b86c9.mockapi.io/characters?id=${hero}`
           );
           setCharacters(data);
-          console.log(characters);
-          
+          setIsLoading(false);
         }
-        roar();
-      }, []);
+        getHero();
+      }, [hero]);
     
 
     useEffect(() => {
@@ -61,6 +63,9 @@ function App() {
                 setSelectedPage={setSelectedPage}
             />
             <Characters
+                hero = {hero}
+                setHero = {setHero}
+                isLoading = {isLoading}
                 characters={characters}
                 setSelectedPage={setSelectedPage}
             />
