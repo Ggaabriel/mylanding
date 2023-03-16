@@ -12,3 +12,9 @@ export interface CharactersItems {
     description: string,
     image: string
 }
+export type TimeLeft = {
+    days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
+  }
