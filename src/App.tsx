@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Characters from "./components/Characters";
 import Header from "./components/Header";
+import BackStory from "./components/BackStory";
 import Home from "./components/Home";
 import useMediaQuery from "./hooks/useMediaQuery";
 import { CharactersItems, SelectedPage } from "./shared/types";
@@ -69,6 +70,7 @@ function App() {
                 characters={characters}
                 setSelectedPage={setSelectedPage}
             />
+            <BackStory setSelectedPage={setSelectedPage}/>
         </div>
     );
 }
