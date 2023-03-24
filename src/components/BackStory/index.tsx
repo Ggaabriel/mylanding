@@ -8,6 +8,8 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import FireNationAnim from "./FireNationAnim";
 import GhostAvatarAnim from "./GhostAvatarAnim";
+import FindingAangAnim from "./FindingAangAnim";
+import AangOnGoraAnim from "./AangOnGoraAnim";
 
 type Props = {
     setSelectedPage: (value: SelectedPage) => void;
@@ -39,11 +41,13 @@ const BackStory = ({ setSelectedPage }: Props) => {
             <motion.div
             // При попадание на глаза устанавливает выбранную страницу 
                 onViewportEnter={() => setSelectedPage(SelectedPage.BackStory)}
-                className="md:h-[240vh] max-w-screen grid grid-rows-2"
+                className="md:h-[400vh] max-w-screen grid grid-rows-2"
             >
                 {/* Блоки с анимацией */}
                 <FireNationAnim setSelectedPage={setSelectedPage} setText={setText}/>
                 <GhostAvatarAnim setSelectedPage={setSelectedPage} setText={setText}/>
+                <FindingAangAnim setSelectedPage={setSelectedPage} setText={setText}/>
+                <AangOnGoraAnim setSelectedPage={setSelectedPage} setText={setText}/>
                 
             </motion.div>
         </section>

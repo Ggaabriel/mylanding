@@ -111,6 +111,7 @@ const FireNationAnim = ({setSelectedPage, setText}: Props) => {
             end: "60% 40%",
             scrub: true,
             animation: tl,
+  
         });
     }, []);
     return (
