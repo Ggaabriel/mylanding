@@ -13,7 +13,7 @@ type Props = {
 };
 
 const Home = ({ isAboveMediumScreens, setSelectedPage }: Props) => {
-    // таймер, который отображает оставшееся время до 1 июля 2023 года в формате дней:часов:минут:секунд
+    // таймер, который отображает оставшееся время до 31 декабря 2023 года в формате дней:часов:минут:секунд
     const [timeLeft, setTimeLeft] = useState<TimeLeft>({
         days: 0,
         hours: 0,
@@ -22,7 +22,7 @@ const Home = ({ isAboveMediumScreens, setSelectedPage }: Props) => {
     });
 
     const calculateTimeLeft = () => {
-        const targetDate = new Date("July 1, 2023 00:00:00");
+        const targetDate = new Date("December 31, 2023 00:00:00");
         const now = new Date();
         const difference = targetDate.getTime() - now.getTime();
 

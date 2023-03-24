@@ -4,7 +4,11 @@ export enum SelectedPage {
     BackStory = "предыстрория",
     Advantages = "преимущества",
     Comments = "отзывы",
-    ContactUs = "обратнаясвязь"
+    ContactUs = "обратнаясвязь" ,
+    FireNationAnim = "начало",
+    GhostAvatarAnim = "пропажа",
+    FindingAangAnim = "новаянадежда",
+    AangOnGoraAnim = "началопутешествия"
 }
 export interface CharactersItems {
     id: number,
