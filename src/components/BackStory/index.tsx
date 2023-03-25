@@ -28,11 +28,12 @@ const BackStory = ({ setSelectedPage }: Props) => {
     return (
         //блок секция с айди для библеотеки с переключением между блоками
         <section id={`${SelectedPage.BackStory}`} className="">
+
             {/* Блок с позитион стики чтобы быть приклееным к грид сетке который будет менять текст по мере скролла */}
             {/* при помощи той же библеотеки что в хедере */}
             <div className="md:flex md:justify-end sticky top-32 z-20">
-                    <div className="bg-bodyColor rounded-xl w-full md:w-[800px] min-h-1/4 max-w- flex items-center flex-col">
-                        <div className="md:text-6xl text-4xl font-bold">
+                    <div className="opacity-70 bg-bodyColor rounded-xl w-full md:w-[800px] min-h-1/4 max-w- flex items-center flex-col">
+                        <div className=" md:text-6xl text-4xl font-bold">
                             {text}
                         </div>
                         <ActionButton chidren={"Смотреть трейлер"} />

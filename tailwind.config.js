@@ -9,7 +9,8 @@ module.exports = {
                 aangPink: "#F17A76",
                 woodColor: "#C57A6B",
                 borderColor: "#CEB383",
-                textColor: "#1A1918"
+                textColor: "#1A1918",
+                iceColor: "#518AC1"
             },
             screens: {
                 xs2:"250px",

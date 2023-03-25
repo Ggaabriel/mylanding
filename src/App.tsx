@@ -6,6 +6,7 @@ import BackStory from "./components/BackStory";
 import Home from "./components/Home";
 import useMediaQuery from "./hooks/useMediaQuery";
 import { CharactersItems, SelectedPage } from "./shared/types";
+import Advantages from "./components/Advantages";
 
 // bodyColor: "#FAE5D0",
 // appaBackground: "#AEA093",
@@ -60,7 +61,6 @@ function App() {
                 setSelectedPage={setSelectedPage}
             />
             <Home
-                isAboveMediumScreens={isAboveMediumScreens}
                 setSelectedPage={setSelectedPage}
             />
             <Characters
@@ -71,6 +71,7 @@ function App() {
                 setSelectedPage={setSelectedPage}
             />
             <BackStory setSelectedPage={setSelectedPage}/>
+            <Advantages />
         </div>
     );
 }

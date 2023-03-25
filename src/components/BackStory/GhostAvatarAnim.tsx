@@ -78,7 +78,7 @@ const GhostAvatarAnim = ({ setSelectedPage, setText }: Props) => {
             ref={section}
         >
             <motion.div
-                className="md:h-[80vh] max-w-screen border mx-auto relative flex items-end justify-center py-20"
+                className="overflow-hidden md:h-[80vh] max-w-screen mx-auto relative flex items-end justify-center py-20"
                 onViewportEnter={() => {
                     setSelectedPage(SelectedPage.GhostAvatarAnim);
                     setText("И когда аватар был нужен, он пропал...");

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import useMediaQuery from "../../hooks/useMediaQuery";
 import { SelectedPage, TimeLeft } from "../../shared/types";
 import aang from "../../assets/images/AangClip.png";
 import { ReactComponent as Telegram } from "../../assets/images/telegram.svg";
@@ -9,10 +8,9 @@ import ActionButton from "../../shared/ActionButton";
 
 type Props = {
     setSelectedPage: (value: SelectedPage) => void;
-    isAboveMediumScreens: boolean;
 };
 
-const Home = ({ isAboveMediumScreens, setSelectedPage }: Props) => {
+const Home = ({setSelectedPage }: Props) => {
     // таймер, который отображает оставшееся время до 31 декабря 2023 года в формате дней:часов:минут:секунд
     const [timeLeft, setTimeLeft] = useState<TimeLeft>({
         days: 0,
