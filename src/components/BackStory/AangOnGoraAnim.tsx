@@ -52,7 +52,6 @@ const AangOnGoraAnim = ({ setSelectedPage, setText }: Props) => {
             .to(aangRef.current, {
                 duration: 0.4,
                 rotation: 0,
-                y: "+=20%",
                 ease: "Power1.easeInOut",
             })
             //тут вешается триггер на всю анимацию сразу а не на отдельное действие как обычно
@@ -70,19 +69,19 @@ const AangOnGoraAnim = ({ setSelectedPage, setText }: Props) => {
 
         <section
             id={`${SelectedPage.AangOnGoraAnim}`}
-            className=""
+            className="py-20 my-20"
             ref={section}
         >
             <motion.div
-                className="md:h-[80vh] overflow-hidden max-w-screen mx-auto relative flex items-end justify-center py-20"
+                className="md:h-[80vh]  overflow-hidden max-w-screen mx-auto relative flex items-end justify-center py-20"
                 onViewportEnter={() =>{
                     setSelectedPage(SelectedPage.AangOnGoraAnim)
                     setText( "Так и началось приключение аанга и его друзей!")
                 }}
             >
 
-                <div className="flex">
-                    <img ref={aangRef} src={aang} alt="" className="h-[36vh] absolute left-[40%] top-40"/>
+                <div className="flex h-[40vh]">
+                    <img ref={aangRef} src={aang} alt="" className="h-[36vh] absolute left-[40%] top-0"/>
                     <img src={gora} alt="" className="h-[32vh]"/>
                 </div>
             </motion.div>
