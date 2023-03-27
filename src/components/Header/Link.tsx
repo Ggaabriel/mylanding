@@ -23,13 +23,17 @@ function Link({ page = "", selectedPage, setSelectedPage, logo }: Props) {
     const isSelectedText = selectedPage === toLoverCasePage ? "text-aangPink" : "";
     const isSelectedBg = selectedPage === toLoverCasePage ? "bg-aangPink" : "bg-woodColor";
 
+
+
     return (
         // Ссылка которая плавно переходит к нужном элементу страницы
         // Работает она путем проверки на лого, если оно существует то добавляй ховер эффект и отрисуй текст, если лого нет то рисуй блок с лого
         <AnchorLink
+
             className={`${isSelectedText} ${logo ? "" : "hover:text-aangPink transition duration-500"}`}
             href={`#${toLoverCasePage}`}
             onClick={() => setSelectedPage(toLoverCasePage)}
+            
         >
             {logo &&
                 <div style={{ clipPath: "polygon(0.00% 0.00%,100.00% 0.00%,100.00% 100%,50% 70%,0.00% 100%)" }} className={`${isSelectedBg} w-24 h-24  flex items-center justify-center hover:bg-aangPink transition duration-500 `}>

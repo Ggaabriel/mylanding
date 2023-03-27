@@ -8,6 +8,8 @@ import useMediaQuery from "./hooks/useMediaQuery";
 import { CharactersItems, SelectedPage } from "./shared/types";
 import Advantages from "./components/Advantages";
 import Comments from "./components/Comments";
+import ContactUs from "./components/ContactUs";
+import Footer from "./components/Footer/indes";
 
 // bodyColor: "#FAE5D0",
 // appaBackground: "#AEA093",
@@ -89,6 +91,8 @@ function App() {
             setSelectedPage={setSelectedPage}
             isAboveMediumScreens={isAboveMediumScreens}
             />
+            <ContactUs setSelectedPage={setSelectedPage}/>
+            <Footer />
         </div>
     );
 }

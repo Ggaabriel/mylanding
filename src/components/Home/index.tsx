@@ -5,6 +5,7 @@ import { ReactComponent as Telegram } from "../../assets/images/telegram.svg";
 import { ReactComponent as Dribbble } from "../../assets/images/dribbble.svg";
 import { motion } from "framer-motion";
 import ActionButton from "../../shared/ActionButton";
+import ScrollDownButton from "../ScrollDownButton";
 
 type Props = {
     setSelectedPage: (value: SelectedPage) => void;
@@ -79,7 +80,11 @@ const Home = ({setSelectedPage }: Props) => {
                         Успейте посмотреть трейлер по подписке netflixXXX до
                         выхода премьеры!
                     </p>
-                    <ActionButton chidren={" Смотреть трейлер"} />
+                    <div className="w-full flex justify-between">
+                        <ActionButton chidren={" Смотреть трейлер"} />
+                        <ScrollDownButton />
+                    </div>
+                    
                     <div className="bg-pinkClip bg-cover w-60 h-24 text-white text xl flex flex-col justify-center gap-4 pl-6">
                         <p>наши соц сети</p>
                         <div className="flex gap-4">

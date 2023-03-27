@@ -24,7 +24,7 @@ module.exports = {
             keyframes: {
                 levitate: {
                   '0%, 100%': {transform: 'rotate(2deg) translate(0,0)'  },
-                  '50%': {transform: 'rotate(0deg) translate(0,15%)' },
+                  '50%': {transform: 'rotate(0deg) translate(0,10%)' },
                 },
                 like: {
                     'from': { backgroundPosition: '0px' },
@@ -42,7 +42,7 @@ module.exports = {
                 'quality': "url('/src/assets/images/advantages/quality.png')",
                 'experience': "url('/src/assets/images/advantages/experience.png')",
                 'like' : "url('/src/assets/images/likeAnim.png')",
-
+                'appa' : "url('/src/assets/images/appa.png')",
             }
         },
     },
