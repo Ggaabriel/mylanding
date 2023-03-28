@@ -50,8 +50,8 @@
       "comment": "Юху ватные палочки!",
       "icon": "",
       "data": "25.03.2023",
-      "like": false,
-      "totalLike": 2
+      "like": true,
+      "totalLike": 3
     },
     {
       "id": 3,
@@ -123,6 +123,11 @@
       "email": "123@gmail.com",
       "password": "$2a$10$9s3I0LqCQ.amGxdVEuxlR.SgMl21eo2v2paQ8w5qjJWgvssYBubGq",
       "id": 3
+    },
+    {
+      "email": "ewqrqr@qwrqwr.qwrw",
+      "password": "$2a$10$HD1R6FaSdaV.jZv82ZQH0uKThLyFdS863qV3.q/QFjDZFDVJgZ0YC",
+      "id": 4
     }
   ]
 }

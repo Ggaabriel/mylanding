@@ -11,14 +11,6 @@ import Comments from "./components/Comments";
 import ContactUs from "./components/ContactUs";
 import Footer from "./components/Footer/indes";
 import Auth from "./components/Auth";
-import { IUser } from "./redux/comments/types";
-
-// bodyColor: "#FAE5D0",
-// appaBackground: "#AEA093",
-// aangPink: "#F17A76",
-// woodColor: "#C57A6B",
-// borderColor: "#CEB383",
-// textColor: "#1A1918"
 
 function App() {
     const [selectedPage, setSelectedPage] = useState<SelectedPage>(
@@ -96,7 +88,7 @@ function App() {
                 setUser={setUser}
             /> 
             <Home setSelectedPage={setSelectedPage} />
-            {wannaLogin ? <Auth user={user} setUser={setUser}                 wannaLogin= {wannaLogin}
+            {wannaLogin ? <Auth user={user} setUser={setUser} wannaLogin= {wannaLogin}
                 setWannaLogin = {setWannaLogin}/> : ""}
             <Characters
                 hero={hero}

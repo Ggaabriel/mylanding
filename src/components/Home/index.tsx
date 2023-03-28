@@ -77,7 +77,7 @@ const Home = ({setSelectedPage }: Props) => {
                         </p>
                     </div>
                     <p className="md:text-4xl text-3xl">
-                        Успейте посмотреть трейлер по подписке netflixXXX до
+                        Успейте посмотреть трейлер по подписке Etflix+ до
                         выхода премьеры!
                     </p>
                     <div className="w-full flex justify-between">
