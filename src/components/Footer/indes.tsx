@@ -44,10 +44,10 @@ const Footer = () => {
                 </div>
                 <div className="text-center sm:text-right">
                     <button
-                        className="font-medium"
+                        className="font-medium p-6 bg-woodColor rounded-xl"
                         onClick={handleScrollToTop}
                     >
-                        <ActionButton chidren={'Наверх'} />
+                        Наверх
                     </button>
                 </div>
             </div>

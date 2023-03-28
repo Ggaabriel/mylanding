@@ -19,4 +19,11 @@ export interface Pagination {
 export interface FetchCommentsParams {
     page: number;
     limit: number;
-  }
+}
+
+export interface IUser {
+    id: number;
+    email: string;
+    password: string;
+}
+

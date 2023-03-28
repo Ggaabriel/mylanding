@@ -10,6 +10,8 @@ import Advantages from "./components/Advantages";
 import Comments from "./components/Comments";
 import ContactUs from "./components/ContactUs";
 import Footer from "./components/Footer/indes";
+import Auth from "./components/Auth";
+import { IUser } from "./redux/comments/types";
 
 // bodyColor: "#FAE5D0",
 // appaBackground: "#AEA093",
@@ -37,7 +39,13 @@ function App() {
     //выбор персонажа от 0-3 по айдишку в блоке персонажей в начале аанг то есть айди 0
     const [hero, setHero] = useState<number>(0);
 
-    const [page,setPage] = useState<number>()
+    const [user, setUser] = useState({
+        id: 0,
+        email: "",
+        password: "",
+    });
+
+    const [wannaLogin, setWannaLogin] = useState(false);
 
     useEffect(() => {
         setIsLoading(true);
@@ -65,6 +73,16 @@ function App() {
         window.addEventListener("scroll", scrollAction);
         return () => window.removeEventListener("scroll", scrollAction);
     }, []);
+
+    useEffect(()=>{
+        const userString = localStorage.getItem("user");
+        const user = userString ? JSON.parse(userString) : {
+            id: 0,
+            email: "",
+            password: "",
+        };
+        setUser(user);
+    },[])
     return (
         <div className="App">
             <Header
@@ -72,8 +90,14 @@ function App() {
                 isTopOfPage={isTopOfPage}
                 selectedPage={selectedPage}
                 setSelectedPage={setSelectedPage}
-            />
+                wannaLogin= {wannaLogin}
+                setWannaLogin = {setWannaLogin}
+                user={user}
+                setUser={setUser}
+            /> 
             <Home setSelectedPage={setSelectedPage} />
+            {wannaLogin ? <Auth user={user} setUser={setUser}                 wannaLogin= {wannaLogin}
+                setWannaLogin = {setWannaLogin}/> : ""}
             <Characters
                 hero={hero}
                 setHero={setHero}
@@ -83,16 +107,16 @@ function App() {
             />
             <BackStory setSelectedPage={setSelectedPage} />
             <Advantages
-            // page={page}
                 setSelectedPage={setSelectedPage}
                 isAboveMediumScreens={isAboveMediumScreens}
             />
             <Comments 
-            setSelectedPage={setSelectedPage}
-            isAboveMediumScreens={isAboveMediumScreens}
+                setSelectedPage={setSelectedPage}
+                isAboveMediumScreens={isAboveMediumScreens}
             />
             <ContactUs setSelectedPage={setSelectedPage}/>
             <Footer />
+           
         </div>
     );
 }

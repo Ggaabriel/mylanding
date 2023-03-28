@@ -7,6 +7,8 @@ import {
     ChevronDownIcon,
     XMarkIcon,
 } from "@heroicons/react/24/outline";
+import ActionButton from "../../shared/ActionButton";
+import { IUser } from "../../redux/comments/types";
 
 type Props = {
     // Выбранная страница
@@ -17,6 +19,13 @@ type Props = {
     isTopOfPage: boolean;
 
     isAboveMediumScreens: boolean;
+
+    wannaLogin: boolean;
+
+    setWannaLogin: (value: boolean) => void;
+
+    user: IUser;
+    setUser: (value: any) => void;
 };
 
 const Header = ({
@@ -24,6 +33,10 @@ const Header = ({
     isTopOfPage,
     selectedPage,
     setSelectedPage,
+    user,
+    setUser,
+    wannaLogin,
+    setWannaLogin
 }: Props) => {
     const flexBetween = "flex items-center justify-between";
 
@@ -42,8 +55,18 @@ const Header = ({
         "Начало",
         "Пропажа",
         "Новая надежда",
-        "Начало путешествия"
-    ]
+        "Начало путешествия",
+    ];
+
+    const clearStorage = () => {
+        localStorage.clear();
+        setUser({
+            id: 0,
+            email: "",
+            password: "",
+        })
+    }
+
     return (
         <nav className="font-bold text-xl">
             <div
@@ -53,12 +76,18 @@ const Header = ({
                     {isAboveMediumScreens ? (
                         <div className={`${flexBetween} w-full gap-16 `}>
                             {/* Навигационные ссылки */}
-                            <div className={`${flexBetween} gap-8 `}>
+                            <div
+                                className={`${flexBetween} gap-8 transition-1`}
+                            >
                                 {/* Тут есть проверка на блок предыстории на его итерации делается кнопка с выпадающим меню */}
                                 {pages.map((elem, i) =>
                                     i === 1 ? (
-                                        <div key={i} className="flex flex-col pt-6">
-                                            <Link 
+                                        <div
+                                            key={i}
+                                            className="flex flex-col pt-6 "
+                                        >
+                                            <Link
+                                                key={i}
                                                 page={elem}
                                                 selectedPage={selectedPage}
                                                 setSelectedPage={
@@ -67,20 +96,27 @@ const Header = ({
                                             />
                                             <button
                                                 className="mx-auto"
-                                                onClick={() =>setHistoryMenuToggle(!isHistoryMenuToggle)}
+                                                onClick={() =>
+                                                    setHistoryMenuToggle(
+                                                        !isHistoryMenuToggle
+                                                    )
+                                                }
                                             >
                                                 <ChevronDownIcon className="w-6 h-6" />
                                                 {isHistoryMenuToggle && (
                                                     <div className="absolute z-30 bg-woodColor flex flex-col gap-6 p-6 text-white rounded-xl">
-                                                        {history.map(elem=> 
-                                                           <Link 
-                                                           page={elem}
-                                                           selectedPage={selectedPage}
-                                                           setSelectedPage={
-                                                               setSelectedPage
-                                                           }
-                                                       />
-                                                            )}
+                                                        {history.map((elem,i) => (
+                                                            <Link
+                                                                key={i}
+                                                                page={elem}
+                                                                selectedPage={
+                                                                    selectedPage
+                                                                }
+                                                                setSelectedPage={
+                                                                    setSelectedPage
+                                                                }
+                                                            />
+                                                        ))}
                                                     </div>
                                                 )}
                                             </button>
@@ -105,7 +141,13 @@ const Header = ({
 
                             {/* Обратная связь */}
                             <div className={`contact ${flexBetween} gap-4 `}>
-                                <button>Войти</button>
+                                {user.email != "" ? (
+                                    <div>{user.email}</div>
+                                    
+                                ) : (
+                                    <button className="hover:text-aangPink duration-500" onClick={()=> setWannaLogin(!wannaLogin)}>Войти</button>
+                                )}
+                                {localStorage.getItem("user") && <button className="hover:text-aangPink duration-500" onClick={clearStorage}>Выйти</button>}
                                 <a href="tel:+74951234567">+7(495)123-45-67</a>
                             </div>
                         </div>
@@ -139,33 +181,50 @@ const Header = ({
 
                     {/* Менюшка */}
                     <div className="ml-[30%] flex flex-col gap-10 text-2xl text-white">
+                        <div className=" text-textColor">
+                        {user.email != "" ? (
+                                    <div>{user.email}</div>
+                                    
+                                ) : (
+                                    <button className="hover:text-aangPink duration-500" onClick={()=> setWannaLogin(!wannaLogin)}>Войти</button>
+                                )}
+                                {localStorage.getItem("user") && <button className="hover:text-aangPink duration-500 " onClick={clearStorage}>Выйти</button>}
+                        </div>
                         {pages.map((elem, i) =>
                             i === 1 ? (
-                                <div  key={i} className="flex flex-col ">
+                                <div key={i} className="flex flex-col ">
                                     <Link
+                                        key={i}
                                         page={elem}
                                         selectedPage={selectedPage}
                                         setSelectedPage={setSelectedPage}
                                     />
                                     <button
-                                                className=""
-                                                onClick={() =>setHistoryMenuToggle(!isHistoryMenuToggle)}
-                                            >
-                                                <ChevronDownIcon className="w-6 h-6" />
-                                                {isHistoryMenuToggle && (
-                                                    <div className=" bg-woodColor flex flex-col gap-6 p-6 text-white rounded-xl">
-                                                        {history.map(elem=> 
-                                                           <Link 
-                                                           page={elem}
-                                                           selectedPage={selectedPage}
-                                                           setSelectedPage={
-                                                               setSelectedPage
-                                                           }
-                                                       />
-                                                            )}
-                                                    </div>
-                                                )}
-                                            </button>
+                                        className=""
+                                        onClick={() =>
+                                            setHistoryMenuToggle(
+                                                !isHistoryMenuToggle
+                                            )
+                                        }
+                                    >
+                                        <ChevronDownIcon className="w-6 h-6" />
+                                        {isHistoryMenuToggle && (
+                                            <div className=" bg-woodColor flex flex-col gap-6 p-6 text-white rounded-xl">
+                                                {history.map((elem,i) => (
+                                                    <Link
+                                                        key={i}
+                                                        page={elem}
+                                                        selectedPage={
+                                                            selectedPage
+                                                        }
+                                                        setSelectedPage={
+                                                            setSelectedPage
+                                                        }
+                                                    />
+                                                ))}
+                                            </div>
+                                        )}
+                                    </button>
                                 </div>
                             ) : (
                                 <Link

@@ -47,13 +47,13 @@ const Comments = ({ setSelectedPage, isAboveMediumScreens }: Props) => {
                 onViewportEnter={() => setSelectedPage(SelectedPage.Comments)}
             >
                 <div className="grid md:grid-cols-4 s:grid-cols-2 grid-cols-1 gap-8">
-                    {comments.map((elem)=>{
-                        return <Comment {...elem} />
+                    {comments.map((elem,i)=>{
+                        return <Comment key={i} {...elem} />
                     })}
                 </div>
                 <div className="text-4xl gap-16 flex">
-                    {mass.map((elem)=> {
-                        return <button className={`${page === elem?"text-6xl":''}`} onClick={()=> updatePage(elem)}>
+                    {mass.map((elem,i)=> {
+                        return <button key={i} className={`${page === elem?"text-6xl":''}`} onClick={()=> updatePage(elem)}>
                             {elem}
                         </button> 
                     })}

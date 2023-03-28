@@ -8,8 +8,8 @@ const ScrollDownButton = () => {
   };
 
   return (
-    <button onClick={handleClick}>
-      <ActionButton chidren={"вниз"} />
+    <button onClick={handleClick} className="font-medium p-6 bg-woodColor rounded-xl">
+        Вниз
     </button>
   );
 };
