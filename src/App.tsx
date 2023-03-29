@@ -40,6 +40,7 @@ function App() {
     const [wannaLogin, setWannaLogin] = useState(false);
 
     useEffect(() => {
+        setTimeout(()=>{
         setIsLoading(true);
         async function getHero() {
             const { data } = await axios.get(
@@ -49,6 +50,8 @@ function App() {
             setIsLoading(false);
         }
         getHero();
+        },500)
+
     }, [hero]);
 
     useEffect(() => {

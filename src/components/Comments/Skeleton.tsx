@@ -11,21 +11,9 @@ import chineese from "../../assets/images/chineese.png";
 import iconOffline from "../../assets/images/icon.png";
 type Props = {};
 
-const Comment = (props: Comments) => {
-    const dispatch = useAppDispatch();
-    const icon = useAppSelector((state) => state.comments.icon);
-    const like = useCallback(async function like(id: number) {
-        const like = await dispatch(fetchToggleLike(id));
-        await dispatch(setLike({ id: id, like: like.payload }));
-    }, []);
-    useEffect(()=>{
-        async function image(){
-            await dispatch(fetchImage(props.id))
-        }
-        image()
-    },[])  
+const Skeleton = (props: Props) => {
     return (
-        <div className={`p-5 bg-bodyColor border-borderColor border-4 `}>
+        <div className="p-5 bg-bodyColor border-borderColor border-4 opacity-0">
             <div className=" min-h-[400px] w-72 flex flex-col justify-between text-center">
                 <div className="flex justify-between h-full">
                     <div className="flex flex-col justify-between">
@@ -33,10 +21,9 @@ const Comment = (props: Comments) => {
                         <img className="scale-y-[-1] w-10" src={chineese} alt="" />
                     </div>
                     <div className="flex flex-col items-center">
-                        <h1 className="md:text-6xl text-4xl font-bold">
-                            {props.nickname}
+                        <h1 className="md:text-6xl text-4xl font-bold p-4">
                         </h1>
-                        <img className="w-1/2 h-1-2" src={props.icon == ""? iconOffline: `${icon}`} alt="картинка" />
+                        <img className="w-1/2 h-1-2" src={iconOffline} alt="картинка" />
                     </div>
                     
                     <div className="flex flex-col justify-between ">
@@ -45,26 +32,11 @@ const Comment = (props: Comments) => {
                     </div>
                 </div>
 
-                <p className="text-2xl">{props.comment}</p>
+                <p className="text-2xl"></p>
 
                 <div className="flex items-center justify-between ">
-                    <div className="pl-5">{props.data}</div>
+                    <div className="pl-5"></div>
                     <div>
-                        {localStorage.getItem("user") && <button
-                            className="text-2xl flex items-center justify-center"
-                            onClick={() => like(props.id)}
-                        >
-                            <div className="absolute mr-1">
-                                {props.totalLike}
-                            </div>
-
-                            <div
-                                className={`w-[100px] h-[100px]  bg-like ${
-                                    props.like ? "animate-likeAnim" : ""
-                                }`}
-                            ></div>
-                        </button>}
-                        
                     </div>
                 </div>
             </div>
@@ -72,4 +44,4 @@ const Comment = (props: Comments) => {
     );
 };
 
-export default Comment;
+export default Skeleton;

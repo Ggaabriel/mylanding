@@ -117,7 +117,7 @@ const FindingAangAnim = ({ setSelectedPage, setText }: Props) => {
             ref={section}
         >
             <motion.div
-                className="md:h-[80vh] max-w-screen mx-auto relative overflow-hidden "
+                className="md:h-[90vh] max-w-screen mx-auto relative overflow-hidden "
                 onViewportEnter={() =>{
                     setSelectedPage(SelectedPage.FindingAangAnim)
                     setText("И однажды Сокка и Катара находят Аанга последнего аватара")
@@ -128,7 +128,7 @@ const FindingAangAnim = ({ setSelectedPage, setText }: Props) => {
                         <img ref={aangRef} src={aang} alt="" className="w-[15vw] h-[20vw] ml-[10vw] mt-[5vw]"/>
                         <div className="bg-iceColor w-[30vw] h-[30vw] rounded-[100%] absolute top-0 opacity-40"></div>
                     </div>
-                    <div className="flex ml-auto ">
+                    <div className="flex ml-auto h-[36vh]">
                         <img ref={sokkaRef} src={sokka} alt="" className="h-[36vh]"/>
                         <img ref={kataraRef} src={katara} alt="" className="h-[36vh]"/>
                     </div>

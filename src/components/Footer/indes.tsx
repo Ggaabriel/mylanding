@@ -19,26 +19,22 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div>
-                    <h3 className="text-lg font-medium mb-4">Авторские права</h3>
+                    <h3 className="text-lg font-medium mb-4">
+                        Авторские права
+                    </h3>
                     <p>&copy; 2023 Example.com. Все права защищены.</p>
                 </div>
                 <div>
                     <h3 className="text-lg font-medium mb-4">Соц. сети</h3>
                     <ul className="flex gap-4">
-                        <li>
-                            <a href="#" aria-label="Facebook">
-                                <FaFacebook className="w-6 h-6" />
-                            </a>
+                        <li className=" cursor-pointer">
+                            <FaFacebook className="w-6 h-6" />
                         </li>
-                        <li>
-                            <a href="#" aria-label="Instagram">
-                                <FaInstagram className="w-6 h-6" />
-                            </a>
+                        <li className=" cursor-pointer">
+                            <FaInstagram className="w-6 h-6" />
                         </li>
-                        <li>
-                            <a href="#" aria-label="Twitter">
-                                <FaTwitter className="w-6 h-6" />
-                            </a>
+                        <li className=" cursor-pointer">
+                            <FaTwitter className="w-6 h-6" />
                         </li>
                     </ul>
                 </div>

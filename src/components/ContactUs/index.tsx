@@ -99,6 +99,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
 
                 </div>
                 <form onSubmit={handleSubmit} className="flex flex-col w-80 absolute bg-none">
+                    {localStorage.getItem("user")?"":<p className="text-red-500">Вы не авторизованы!</p>}
                     <label htmlFor="name">Имя</label>
                     <input
                         type="text"
@@ -138,7 +139,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                     />
                     {formErrors.message && <p className="text-red-500">{formErrors.message}</p>}
 
-                    {!formErrors.name && !formErrors.phone && !formErrors.email && !formErrors.message && <button type="submit">Отправить</button>}
+                    {!formErrors.name && !formErrors.phone && !formErrors.email && !formErrors.message && localStorage.getItem("user") && <button type="submit">Отправить</button>}
                     
                 </form>
             </motion.div>

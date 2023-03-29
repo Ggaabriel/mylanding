@@ -31,7 +31,7 @@ const Characters = ({
             >
                 {/* Блок с информацией и картинкой */}
                 <motion.div className="h-3/4 w-3/4 bg-bodyColor rounded-xl py-4 px-4">
-                    <Character isLoading={isLoading} characters={characters} />
+                    <Character isLoading={isLoading} characters={characters} hero={hero}/>
                 </motion.div>
                 {/* Пагинация между персонажами */}{" "}
                 <div className="flex gap-6">

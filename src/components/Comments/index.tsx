@@ -10,6 +10,7 @@ import { setComments, setPage} from "../../redux/comments/slice";
 import ActionButton from "../../shared/ActionButton";
 import { SelectedPage } from "../../shared/types";
 import Comment from "./Comment";
+import Skeleton from "./Skeleton";
 
 type Props = {
     setSelectedPage: (value: SelectedPage) => void;
@@ -37,8 +38,15 @@ const Comments = ({ setSelectedPage, isAboveMediumScreens }: Props) => {
         dispatch(fetchComments({ page: 1, limit: 4 }));
         dispatch(fetchTotalCount());
     }, []);
+    const [anim,setAnim] = React.useState(false)
+    function waitAnim(elem:number) {
+        setAnim(true);
+        setTimeout(()=>{
 
-    
+            updatePage(elem);
+            setAnim(false);
+        },500)
+    }
 
     return (
         <section className=" overflow-hidden" id={`${SelectedPage.Comments}`}>
@@ -46,14 +54,14 @@ const Comments = ({ setSelectedPage, isAboveMediumScreens }: Props) => {
                 className="font-caveat max-w-[1400px] mx-auto min-h-[980px] flex flex-col items-center justify-center gap-32"
                 onViewportEnter={() => setSelectedPage(SelectedPage.Comments)}
             >
-                <div className="grid md:grid-cols-4 s:grid-cols-2 grid-cols-1 gap-8">
-                    {comments.map((elem,i)=>{
+                <div className={`grid md:grid-cols-4 s:grid-cols-2 grid-cols-1 gap-8 transition-opacity duration-500 ${anim?" animate-die":" animate-born"}`}>
+                    {comments[0] ? comments.map((elem,i)=>{
                         return <Comment key={i} {...elem} />
-                    })}
+                    }): [...new Array(4)].map((_,i)=> <Skeleton key={i}/>)}
                 </div>
                 <div className="text-4xl gap-16 flex">
                     {mass.map((elem,i)=> {
-                        return <button key={i} className={`${page === elem?"text-6xl":''}`} onClick={()=> updatePage(elem)}>
+                        return <button key={i} className={`${page === elem?"text-6xl":''}`} onClick={()=> waitAnim(elem)}>
                             {elem}
                         </button> 
                     })}
