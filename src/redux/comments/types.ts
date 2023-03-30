@@ -26,4 +26,12 @@ export interface IUser {
     email: string;
     password: string;
 }
-
+export type PostFlagLike = {
+    id:number,
+    like:boolean
+}
+export type TotalLike = {
+    id:number,
+    like:boolean,
+    totalLike: number
+}

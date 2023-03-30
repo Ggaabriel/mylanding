@@ -1,12 +1,3 @@
-import { motion } from "framer-motion";
-import React, { useCallback, useEffect } from "react";
-import { useAppDispatch } from "../../hooks/useAppDispatch";
-import { useAppSelector } from "../../hooks/useAppSelector";
-import { fetchImage, fetchToggleLike } from "../../redux/comments/asyncActions";
-import { setLike } from "../../redux/comments/slice";
-import { Comments } from "../../redux/comments/types";
-import ActionButton from "../../shared/ActionButton";
-import { SelectedPage } from "../../shared/types";
 import chineese from "../../assets/images/chineese.png";
 import iconOffline from "../../assets/images/icon.png";
 type Props = {};

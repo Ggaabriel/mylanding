@@ -1,7 +1,6 @@
 import React from "react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import { animateScroll as scroll } from "react-scroll";
-import ActionButton from "../../shared/ActionButton";
 const Footer = () => {
     const handleScrollToTop = () => {
         scroll.scrollToTop({ duration: 500 });

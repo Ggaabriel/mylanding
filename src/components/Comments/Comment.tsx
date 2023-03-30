@@ -1,12 +1,9 @@
-import { motion } from "framer-motion";
 import React, { useCallback, useEffect } from "react";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { useAppSelector } from "../../hooks/useAppSelector";
-import { fetchImage, fetchToggleLike } from "../../redux/comments/asyncActions";
+import { fetchImage, postFlagLike, postTotalLike } from "../../redux/comments/asyncActions";
 import { setLike } from "../../redux/comments/slice";
 import { Comments } from "../../redux/comments/types";
-import ActionButton from "../../shared/ActionButton";
-import { SelectedPage } from "../../shared/types";
 import chineese from "../../assets/images/chineese.png";
 import iconOffline from "../../assets/images/icon.png";
 type Props = {};
@@ -14,9 +11,10 @@ type Props = {};
 const Comment = (props: Comments) => {
     const dispatch = useAppDispatch();
     const icon = useAppSelector((state) => state.comments.icon);
-    const like = useCallback(async function like(id: number) {
-        const like = await dispatch(fetchToggleLike(id));
-        await dispatch(setLike({ id: id, like: like.payload }));
+    const like = useCallback(async function like(id: number, like: boolean, totalLike:number) {
+        const returnedLike = await dispatch(postFlagLike({id,like}));
+        await dispatch(postTotalLike({id,like,totalLike}))
+        await dispatch(setLike({ id: id, like: returnedLike.payload }));
     }, []);
     useEffect(()=>{
         async function image(){
@@ -52,7 +50,7 @@ const Comment = (props: Comments) => {
                     <div>
                         {localStorage.getItem("user") && <button
                             className="text-2xl flex items-center justify-center"
-                            onClick={() => like(props.id)}
+                            onClick={() => like(props.id,props.like,props.totalLike)}
                         >
                             <div className="absolute mr-1">
                                 {props.totalLike}

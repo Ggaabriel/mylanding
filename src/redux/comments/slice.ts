@@ -1,6 +1,9 @@
 
 import {createSlice} from '@reduxjs/toolkit';
-import { fetchComments, fetchImage, fetchToggleLike, fetchTotalCount } from "./asyncActions";
+import { fetchComments, fetchImage,
+  // fetchToggleLike, 
+  fetchTotalCount,
+   postFlagLike, postTotalLike } from "./asyncActions";
 import { Pagination } from './types';
 
 const initialState:Pagination  = {
@@ -60,16 +63,16 @@ const commentsSlice = createSlice({
             console.log(`error123`);
           })
           //likes
-          .addCase(fetchToggleLike.pending, (state, action) => {
-            console.log(`loading123`);
-          })
-          .addCase(fetchToggleLike.fulfilled, (state, action) => {
-            console.log(`success123`);
-          })
-          .addCase(fetchToggleLike.rejected, (state, action) => {
-            console.log(`error123`);
-          })
-
+          // .addCase(fetchToggleLike.pending, (state, action) => {
+          //   console.log(`loading123`);
+          // })
+          // .addCase(fetchToggleLike.fulfilled, (state, action) => {
+          //   console.log(`success123`);
+          // })
+          // .addCase(fetchToggleLike.rejected, (state, action) => {
+          //   console.log(`error123`);
+          // })
+          // image
           .addCase(fetchImage.pending, (state, action) => {
             console.log(`loading123`);
           })
@@ -79,6 +82,26 @@ const commentsSlice = createSlice({
             
           })
           .addCase(fetchImage.rejected, (state, action) => {
+            console.log(`error123`);
+          })
+          //flaglike
+          .addCase(postFlagLike.pending, (state, action) => {
+            console.log(`loading123`);
+          })
+          .addCase(postFlagLike.fulfilled, (state, action) => {
+            console.log(`success123`);
+          })
+          .addCase(postFlagLike.rejected, (state, action) => {
+            console.log(`error123`);
+          })
+          //totallike
+          .addCase(postTotalLike.pending, (state, action) => {
+            console.log(`loading123`);
+          })
+          .addCase(postTotalLike.fulfilled, (state, action) => {
+            console.log(`success123`);
+          })
+          .addCase(postTotalLike.rejected, (state, action) => {
             console.log(`error123`);
           });
       }

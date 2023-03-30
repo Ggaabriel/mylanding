@@ -23,3 +23,18 @@ export type TimeLeft = {
     seconds: number;
 }
 
+export type FormValues = {
+    name: string;
+    phone: string;
+    email: string;
+    message: string;
+};
+
+export type FormErrors = {
+    name: string;
+    phone: string;
+    email: string;
+    message: string;
+};
+
+

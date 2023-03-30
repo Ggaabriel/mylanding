@@ -47,7 +47,7 @@ const Comments = ({ setSelectedPage, isAboveMediumScreens }: Props) => {
             setAnim(false);
         },500)
     }
-
+    //11
     return (
         <section className=" overflow-hidden" id={`${SelectedPage.Comments}`}>
             <motion.div

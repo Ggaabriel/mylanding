@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { Comments, FetchCommentsParams } from './types';
+import { BooleanLiteral } from 'typescript';
+import { Comments, FetchCommentsParams, PostFlagLike, TotalLike } from './types';
 
 
 export const fetchComments = createAsyncThunk(
@@ -14,10 +15,8 @@ export const fetchComments = createAsyncThunk(
     },
 );
 
-type TotalCount = number;
-  
-export const fetchTotalCount = createAsyncThunk<TotalCount // тип для payload
-  >('comments/fetchTotalCountStatus', async () => {
+
+export const fetchTotalCount = createAsyncThunk<number>('comments/fetchTotalCountStatus', async () => {
 
     const response = await axios.get(
       `http://localhost:8080/comments?_page=1`, {
@@ -30,23 +29,40 @@ export const fetchTotalCount = createAsyncThunk<TotalCount // тип для payl
     return totalCount;
 });
 
-type Like = boolean;
-export const fetchToggleLike = createAsyncThunk<Like, number>(`comments/fetchToggleLike`,
-    async (id) => {
-        const responce = await axios.get(`http://localhost:8080/comments?id=${id}`);
-        const like = responce.data[0].like;
-        const totalLike = responce.data[0].totalLike
+
+// export const fetchToggleLike = createAsyncThunk<boolean, number>(`comments/fetchToggleLike`,//первый тип это колбэк второй что принимает асинхронная функция
+//     async (id) => {
+//         const responce = await axios.get(`http://localhost:8080/comments?id=${id}`);
+//         const like = responce.data[0].like;
+//         const totalLike = responce.data[0].totalLike
         
-        const {data} =  await axios.patch(`http://localhost:8080/comments/${id}`, {
+//         const {data} =  await axios.patch(`http://localhost:8080/comments/${id}`, {
+//             like: !like
+//         });
+//         await axios.patch(`http://localhost:8080/comments/${id}`, {
+//             totalLike: !like? totalLike + 1 : totalLike - 1
+//         });
+//         console.log(data.like);
+        
+//         return !like; 
+// })
+
+export const postFlagLike = createAsyncThunk<boolean, PostFlagLike>(`comments/postFlagLike`,
+    async ({id, like}) => {
+        const {data} = await axios.patch(`http://localhost:8080/comments/${id}`, {
             like: !like
         });
-        await axios.patch(`http://localhost:8080/comments/${id}`, {
+        return data.like; 
+})
+
+export const postTotalLike = createAsyncThunk<number, TotalLike>(`comments/postTotalLike`,
+    async ({id, like, totalLike}) => {
+        const {data} = await axios.patch(`http://localhost:8080/comments/${id}`, {
             totalLike: !like? totalLike + 1 : totalLike - 1
         });
-        console.log(data.like);
-        
-        return !like; 
+        return data.totalLike; 
 })
+
 
 type Image = string
 export const fetchImage = createAsyncThunk<Image, number>(
