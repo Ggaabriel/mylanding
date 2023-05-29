@@ -11,7 +11,7 @@
 1. Убедитесь, что у вас установлен Node.js на вашем компьютере.
 
 2. Склонируйте этот репозиторий на свой локальный компьютер:
-git clone https://github.com/ваш-username/аватар-последний-маг-воздуха.git
+git clone https://github.com/Ggaabriel/mylanding
 
 3. Перейдите в папку проекта:
 cd mylanding
